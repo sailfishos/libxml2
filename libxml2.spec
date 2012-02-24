@@ -5,6 +5,7 @@ Release: 8
 License: MIT
 Group: System/Libraries
 Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
+Patch0: CVE-2012-0841.patch
 BuildRequires: zlib-devel
 URL: http://xmlsoft.org/
 
@@ -48,7 +49,7 @@ URI library.
 
 %prep
 %setup -q
-
+%patch0 -p1
 %build
 %configure
 make %{_smp_mflags}
