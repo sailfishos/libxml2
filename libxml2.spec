@@ -1,11 +1,15 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.7.8
-Release: 8
+Version: 2.8.0
+Release: 1
 License: MIT
 Group: System/Libraries
 Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
-Patch0: CVE-2012-0841.patch
+Patch0: 0003-Fix-parser-local-buffers-size-problems.patch
+Patch1: 0004-Fix-entities-local-buffers-size-problems.patch
+Patch2: 0005-Fix-a-failure-to-report-xmlreader-parsing-failures.patch
+Patch3: 0006-Fix-potential-out-of-bound-access.patch
+Patch4: cve-2013-0338-0339.patch
 BuildRequires: zlib-devel
 URL: http://xmlsoft.org/
 
@@ -50,6 +54,10 @@ URI library.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 %build
 %configure
 make %{_smp_mflags}
