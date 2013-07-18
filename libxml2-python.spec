@@ -1,6 +1,6 @@
 Summary: Python bindings for the libxml2 library
 Name: libxml2-python
-Version: 2.7.8
+Version: 2.8.0
 Release: 1 
 License: MIT
 Group: System/Libraries
