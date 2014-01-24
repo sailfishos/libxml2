@@ -10,6 +10,7 @@ Patch1: 0004-Fix-entities-local-buffers-size-problems.patch
 Patch2: 0005-Fix-a-failure-to-report-xmlreader-parsing-failures.patch
 Patch3: 0006-Fix-potential-out-of-bound-access.patch
 Patch4: cve-2013-0338-0339.patch
+Patch5: libxml2-aarch64.patch
 BuildRequires: zlib-devel
 URL: http://xmlsoft.org/
 
@@ -58,8 +59,10 @@ URI library.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+
 %build
-%configure
+%configure --with-python=no
 make %{_smp_mflags}
 gzip -9 ChangeLog
 
