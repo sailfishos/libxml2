@@ -1,3 +1,16 @@
+* Tue Jul 22 2014 Davide Bettio <davide.bettio@ispirata.com> - 2.9.1
+- Update to 2.9.1
+- Drop all previous patches
+- Fix CVE-2014-0191
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=698582
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=699896
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=698550
+- Added 0001-modify-xml2-config-and-pkgconfig-behaviour.patch
+- Added 0003-Fix-missing-break-on-last-function-for-attributes.patch
+- Added 0005-properly-quote-the-namespace-uris-written-out-during.patch
+- Added 0007-Fix-XPath-optimization-with-predicates.patch
+- Added lp1321869.patch: fix regressions introduced by CVE-2014-0191.patch
+
 * Thu Jul 18 2013 Davide Bettio <davide.bettio@ispirata.com> - 2.8.0
 - Update to 2.8.0 version
 - Add patch to fix parser local buffers size problems
