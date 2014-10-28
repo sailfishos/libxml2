@@ -16,6 +16,7 @@ Patch7: 0006-Fix-a-parsing-bug-on-non-ascii-element-and-CR-LF-usa.patch
 Patch8: 0007-Fix-XPath-optimization-with-predicates.patch
 Patch9: CVE-2014-0191.patch
 Patch10: lp1321869.patch
+Patch11: CVE-2014-3660.patch
 BuildRequires: python python-devel zlib-devel pkgconfig libxml2-python-build
 URL: http://xmlsoft.org/
 
@@ -49,6 +50,8 @@ supplied by the libxml2 library to manipulate XML files.
 %patch9 -p1
 # lp1321869.patch
 %patch10 -p1
+# CVE-2014-3660.patch
+%patch11 -p1
 
 %build
 %configure
