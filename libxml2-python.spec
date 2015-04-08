@@ -1,7 +1,7 @@
 Summary: Python bindings for the libxml2 library
 Name: libxml2-python
 Version: 2.9.1
-Release: 1
+Release: 3
 License: MIT
 Group: System/Libraries
 Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
@@ -17,6 +17,7 @@ Patch8: 0007-Fix-XPath-optimization-with-predicates.patch
 Patch9: CVE-2014-0191.patch
 Patch10: lp1321869.patch
 Patch11: CVE-2014-3660.patch
+Patch12: CVE-2014-3660-bis.patch
 BuildRequires: python python-devel zlib-devel pkgconfig libxml2-python-build
 URL: http://xmlsoft.org/
 
@@ -52,6 +53,8 @@ supplied by the libxml2 library to manipulate XML files.
 %patch10 -p1
 # CVE-2014-3660.patch
 %patch11 -p1
+# CVE-2014-3660-bis.patch
+%patch12 -p1
 
 %build
 %configure
