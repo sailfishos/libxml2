@@ -1,7 +1,7 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
 Version: 2.9.1
-Release: 2
+Release: 3
 License: MIT
 Group: System/Libraries
 Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
@@ -17,6 +17,7 @@ Patch8: 0007-Fix-XPath-optimization-with-predicates.patch
 Patch9: CVE-2014-0191.patch
 Patch10: lp1321869.patch
 Patch11: CVE-2014-3660.patch
+Patch12: CVE-2014-3660-bis.patch
 BuildRequires: zlib-devel
 URL: http://xmlsoft.org/
 
@@ -82,6 +83,8 @@ URI library.
 %patch10 -p1
 # CVE-2014-3660.patch
 %patch11 -p1
+# CVE-2014-3660-bis.patch
+%patch12 -p1
 
 %build
 %configure --with-python=no
