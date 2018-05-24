@@ -1,24 +1,12 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.9.1
-Release: 3
+Version: 2.9.8
+Release: 1
 License: MIT
 Group: System/Libraries
-Source: ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
-# https://bugzilla.redhat.com/show_bug.cgi?id=877567
-Patch1: libxml2-2.9.0-do-not-check-crc.patch
-Patch2: 0001-modify-xml2-config-and-pkgconfig-behaviour.patch
-Patch3: 0002-Fix-an-error-in-xmlCleanupParser.patch
-Patch4: 0003-Fix-missing-break-on-last-function-for-attributes.patch
-Patch5: 0004-xmllint-memory-should-fail-on-empty-files.patch
-Patch6: 0005-properly-quote-the-namespace-uris-written-out-during.patch
-Patch7: 0006-Fix-a-parsing-bug-on-non-ascii-element-and-CR-LF-usa.patch 
-Patch8: 0007-Fix-XPath-optimization-with-predicates.patch
-Patch9: CVE-2014-0191.patch
-Patch10: lp1321869.patch
-Patch11: CVE-2014-3660.patch
-Patch12: CVE-2014-3660-bis.patch
-Patch13: 0008-Suppress-documentation-installation-as-it-causes-pro.patch
+Source0: ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
+Patch1: 0001-Suppress-documentation-installation-as-it-causes-pro.patch
+
 BuildRequires: zlib-devel
 URL: http://xmlsoft.org/
 
@@ -62,32 +50,8 @@ URI library.
 
 %prep
 %setup -q -n %{name}-%{version}/libxml2
-# libxml2-2.9.0-do-not-check-crc.patch
+# 0001-Suppress-documentation-installation-as-it-causes-pro.patch
 %patch1 -p1
-# 0001-modify-xml2-config-and-pkgconfig-behaviour.patch
-%patch2 -p1
-# 0002-Fix-an-error-in-xmlCleanupParser.patch
-%patch3 -p1
-# 0003-Fix-missing-break-on-last-function-for-attributes.patch
-%patch4 -p1
-# 0004-xmllint-memory-should-fail-on-empty-files.patch
-%patch5 -p1
-# 0005-properly-quote-the-namespace-uris-written-out-during.patch
-%patch6 -p1
-# 0006-Fix-a-parsing-bug-on-non-ascii-element-and-CR-LF-usa.patch 
-%patch7 -p1
-# 0007-Fix-XPath-optimization-with-predicates.patch
-%patch8 -p1
-# CVE-2014-0191.patch
-%patch9 -p1
-# lp1321869.patch
-%patch10 -p1
-# CVE-2014-3660.patch
-%patch11 -p1
-# CVE-2014-3660-bis.patch
-%patch12 -p1
-# 0008-Suppress-documentation-installation-as-it-causes-pro.patch
-%patch13 -p1
 
 %build
 %autogen --with-python=no
@@ -134,6 +98,7 @@ rm -fr %{buildroot}
 %{_bindir}/xml2-config
 %{_datadir}/aclocal/libxml.m4
 %{_libdir}/pkgconfig/libxml-2.0.pc
+%{_libdir}/cmake/%{name}/%{name}-config.cmake
 
 %files python-build
 %defattr(-, root, root,-)
