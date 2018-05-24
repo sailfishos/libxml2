@@ -1,0 +1,123 @@
+* Wed Apr 08 2015 Pasi Sjöholm <pasi.sjoholm@jolla.com> - 2.9.1-3
+- Fix regression caused by CVE-2014-3660 fix
+
+* Wed Oct 29 2014 Pasi Sjöholm <pasi.sjoholm@jolla.com> - 2.9.1-2
+- Fix CVE-2014-3660
+
+* Tue Jul 22 2014 Davide Bettio <davide.bettio@ispirata.com> - 2.9.1
+- Update to 2.9.1
+- Drop all previous patches
+- Fix CVE-2014-0191
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=698582
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=699896
+- Fix https://bugzilla.gnome.org/show_bug.cgi?id=698550
+- Added 0001-modify-xml2-config-and-pkgconfig-behaviour.patch
+- Added 0003-Fix-missing-break-on-last-function-for-attributes.patch
+- Added 0005-properly-quote-the-namespace-uris-written-out-during.patch
+- Added 0007-Fix-XPath-optimization-with-predicates.patch
+- Added lp1321869.patch: fix regressions introduced by CVE-2014-0191.patch
+
+* Thu Jul 18 2013 Davide Bettio <davide.bettio@ispirata.com> - 2.8.0
+- Update to 2.8.0 version
+- Add patch to fix parser local buffers size problems
+- Add patch to fix entities local buffers size problems
+- Add patch for https://bugzilla.gnome.org/show_bug.cgi?id=654567
+- Add patch to fix potential out of bound access
+- Add patch for CVE-2013-0338-0339
+
+* Fri Feb 24 2012 Carsten Munk <carsten@merproject.org> - 2.7.8
+- Add patch for CVE-2012-0841, from
+  http://git.gnome.org/browse/libxml2/commit/?id=8973d58b7498fa5100a876815476b81fd1a2412a
+
+* Sat Mar 12 2011 Anas Nashif <anas.nashif@intel.com> - 2.7.8
+- Fix bmc #13782 with a new minor update: The processing of namespace and attributes nodes  
+  was not compliant to the XPath-1.0 specification 
+
+* Sun May 09 2010 Anas Nashif <anas.nashif@intel.com> - 2.7.7
+- Update to 2.7.7
+
+* Sun May 09 2010 Anas Nashif <anas.nashif@intel.com> - 2.7.6
+- Fixed rpmlint errors
+
+* Tue Nov 24 2009 Anas Nashif <anas.nashif@intel.com> - 2.7.6
+- Update to 2.7.6 and fixed python bindings
+
+* Tue Sep 22 2009 Anas Nashif <anas.nashif@intel.com> - 2.7.4
+- Update to 2.7.4
+
+* Tue Aug 11 2009 Passion Zhao <passion.zhao@intel.com> - 2.7.3-
+- Two patches for parsing problems CVE-2009-2414 and CVE-2009-2416
+
+* Thu May 14 2009 Anas Nashif <anas.nashif@intel.com> 2.7.3
+- do not set error code in xmlNsWarn
+
+
+* Fri Feb 13 2009 Anas Nashif <anas.nashif@intel.com> 2.7.3
+- Update to Version 2.7.3
+
+* Tue Jan 13 2009 Anas Nashif <anas.nashif@intel.com> 2.7.2
+- two patches for size overflows problems CVE-2008-4225 and CVE-2008-4226
+- new release 2.7.2
+- upstream release of 2.7.2
+- switch to XML 1.0 5th edition
+- switch to RFC 3986 for URI parsing
+- better entity handling
+- option to remove hardcoded limitations in the parser
+- more testing
+- a new API to allocate entity nodes
+- and lot of fixes and clanups
+
+* Thu Dec 11 2008 Anas Nashif <anas.nashif@intel.com> 2.6.32
+- Cleanup spec file
+- Create doc sub-package
+
+* Tue Sep 02 2008 Anas Nashif <anas.nashif@intel.com> 
+- fixed *.la file (remove buildroot prefix)
+
+* Tue Apr  8 2008 Daniel Veillard <veillard@redhat.com> 2.6.31-2.fc9
+- upstream release 2.6.32 see http://xmlsoft.org/news.html
+- many bug fixed upstream
+
+* Wed Feb 20 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 2.6.31-2
+- Autorebuild for GCC 4.3
+
+* Fri Jan 11 2008 Daniel Veillard <veillard@redhat.com> 2.6.31-1.fc9
+- upstream release 2.6.31 see http://xmlsoft.org/news.html
+- many bug fixed upstream
+
+* Thu Aug 23 2007 Daniel Veillard <veillard@redhat.com> 2.6.30-1
+- upstream release 2.6.30 see http://xmlsoft.org/news.html
+- many bug fixed upstream
+
+* Tue Jun 12 2007 Daniel Veillard <veillard@redhat.com> 2.6.29-1
+- upstream release 2.6.29 see http://xmlsoft.org/news.html
+- many bug fixed upstream
+
+* Wed May 16 2007 Matthias Clasen <mclasen@redhat.com> 2.6.28-2
+- Bump revision to fix N-V-R problem
+
+* Tue Apr 17 2007 Daniel Veillard <veillard@redhat.com> 2.6.28-1
+- upstream release 2.6.28 see http://xmlsoft.org/news.html
+- many bug fixed upstream
+
+* Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com> - 2.6.27-2
+- rebuild against python 2.5
+
+* Wed Oct 25 2006 Daniel Veillard <veillard@redhat.com> 2.6.27-1
+- upstream release 2.6.27 see http://xmlsoft.org/news.html
+- very large amount of bug fixes reported upstream
+
+* Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - 2.6.26-2.1.1
+- rebuild
+
+* Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - 2.6.26-2.1
+- rebuild
+
+* Wed Jun  7 2006 Daniel Veillard <veillard@redhat.com> 2.6.26-2
+- fix bug #192873
+* Tue Jun  6 2006 Daniel Veillard <veillard@redhat.com> 2.6.26-1
+- upstream release 2.6.26 see http://xmlsoft.org/news.html
+
+* Tue Jun  6 2006 Daniel Veillard <veillard@redhat.com>
+- upstream release 2.6.25 broken, do not ship !
+
