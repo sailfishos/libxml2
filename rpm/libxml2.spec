@@ -48,6 +48,14 @@ to select subnodes or ranges. A flexible Input/Output mechanism is
 available, with existing HTTP and FTP modules and combined to an
 URI library.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+Man pages for %{name}.
+
 %prep
 %setup -q -n %{name}-%{version}/libxml2
 # 0001-Suppress-documentation-installation-as-it-causes-pro.patch
@@ -69,6 +77,10 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 touch -m --reference=$RPM_BUILD_ROOT/%{_includedir}/libxml2/libxml/parser.h $RPM_BUILD_ROOT/%{_bindir}/xml2-config
 (cd doc/examples ; make clean ; rm -rf .deps Makefile)
 
+mkdir -p $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/ \
+    AUTHORS ChangeLog.gz CONTRIBUTING MAINTAINERS NEWS README TODO
+
 %clean
 rm -fr %{buildroot}
 
@@ -78,18 +90,13 @@ rm -fr %{buildroot}
 
 %files
 %defattr(-, root, root)
-
-%doc AUTHORS Copyright
-%doc %{_mandir}/man1/xml2-config.1*
-%doc %{_mandir}/man3/libxml.3*
-
+%license Copyright
 %{_libdir}/lib*.so.*
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
 
 %files devel
 %defattr(-, root, root)
-%doc ChangeLog.gz NEWS README TODO
 
 %{_libdir}/lib*.so
 #needed to build python
@@ -103,3 +110,9 @@ rm -fr %{buildroot}
 %files python-build
 %defattr(-, root, root,-)
 %{_libdir}/libxml2.la
+
+%files doc
+%defattr(-, root, root)
+%doc %{_docdir}/%{name}-%{version}/*
+%doc %{_mandir}/man1/xml2-config.1*
+%doc %{_mandir}/man3/libxml.3*
