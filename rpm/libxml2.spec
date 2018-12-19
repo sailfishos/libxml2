@@ -49,7 +49,7 @@ available, with existing HTTP and FTP modules and combined to an
 URI library.
 
 %package doc
-Summary:   Documentation for %{name}.
+Summary:   Documentation for %{name}
 Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
