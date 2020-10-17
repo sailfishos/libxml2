@@ -3,7 +3,6 @@ Name: libxml2
 Version: 2.9.8
 Release: 1
 License: MIT
-Group: System/Libraries
 Source0: ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
 Patch1: 0001-Suppress-documentation-installation-as-it-causes-pro.patch
 
@@ -23,7 +22,6 @@ URI library.
 
 %package python-build
 Summary: Package for building python extensions
-Group: Development/Libraries
 Requires: libxml2-devel = %{version}-%{release}
 
 %description python-build
@@ -31,7 +29,6 @@ Requires: libxml2-devel = %{version}-%{release}
 
 %package devel
 Summary: Libraries, includes, etc. to develop XML and HTML applications
-Group: Development/Libraries
 Requires: libxml2 = %{version}-%{release}
 Requires: zlib-devel
 Requires: pkgconfig
@@ -50,7 +47,6 @@ URI library.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
@@ -75,14 +71,10 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 
 # multiarch crazyness on timestamp differences or Makefile/binaries for examples
 touch -m --reference=$RPM_BUILD_ROOT/%{_includedir}/libxml2/libxml/parser.h $RPM_BUILD_ROOT/%{_bindir}/xml2-config
-(cd doc/examples ; make clean ; rm -rf .deps Makefile)
 
 mkdir -p $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/ \
     AUTHORS ChangeLog.gz CONTRIBUTING MAINTAINERS NEWS README TODO
-
-%clean
-rm -fr %{buildroot}
 
 %post -p /sbin/ldconfig
 
