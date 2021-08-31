@@ -1,13 +1,15 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.9.8
+Version: 2.9.12
 Release: 1
 License: MIT
-Source0: ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
+Source0: %{name}-%{version}.tar.gz
 Patch1: 0001-Suppress-documentation-installation-as-it-causes-pro.patch
 
-BuildRequires: zlib-devel
-URL: http://xmlsoft.org/
+BuildRequires: autoconf
+BuildRequires: libtool
+BuildRequires: pkgconfig(zlib)
+URL: https://github.com/sailfishos/libxml2
 
 %description 
 This library allows to manipulate XML files. It includes support 
@@ -30,8 +32,7 @@ Requires: libxml2-devel = %{version}-%{release}
 %package devel
 Summary: Libraries, includes, etc. to develop XML and HTML applications
 Requires: libxml2 = %{version}-%{release}
-Requires: zlib-devel
-Requires: pkgconfig
+Requires: pkgconfig(zlib)
 
 %description devel
 Libraries, include files, etc you can use to develop XML applications.
@@ -53,13 +54,11 @@ Requires:  %{name} = %{version}-%{release}
 Man pages for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/libxml2
-# 0001-Suppress-documentation-installation-as-it-causes-pro.patch
-%patch1 -p1
+%autosetup -p1 -n %{name}-%{version}/libxml2
 
 %build
-%autogen --with-python=no
-make %{_smp_mflags}
+%autogen --with-python=no --with-zlib --with-icu=no
+%make_build
 gzip -9 ChangeLog
 
 %install
