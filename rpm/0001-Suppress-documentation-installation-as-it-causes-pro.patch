@@ -1,31 +1,33 @@
-From 3e03d5b62e5551f1f6e2294b495ef00fab765d8e Mon Sep 17 00:00:00 2001
-From: Andrew Branson <andrew.branson@jollamobile.com>
-Date: Thu, 24 May 2018 10:48:57 +0200
-Subject: [PATCH 2/2] Suppress documentation installation, as it causes
- problems in our build
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Marko Saukko <marko.saukko@jolla.com>
+Date: Tue, 31 Aug 2021 07:42:34 +0000
+Subject: [PATCH] Disable documentation further.
 
+Suppress documentation installation, as it causes problems in our build
+
+Signed-off-by: Marko Saukko <marko.saukko@jolla.com>
 ---
  Makefile.am  | 16 ++--------------
  configure.ac |  2 +-
  2 files changed, 3 insertions(+), 15 deletions(-)
 
 diff --git a/Makefile.am b/Makefile.am
-index 9c630be..9557fc1 100644
+index a9284b95b6f7a91a81ee8ab95b333821fff6e572..f8a8b60e74338f264edb5e296b454b5f4c6524ca 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -2,9 +2,9 @@
  
  ACLOCAL_AMFLAGS = -I m4
  
--SUBDIRS = include . doc example xstc $(PYTHON_SUBDIR)
-+SUBDIRS = include . xstc $(PYTHON_SUBDIR)
+-SUBDIRS = include . doc example fuzz xstc $(PYTHON_SUBDIR)
++SUBDIRS = include . fuzz xstc $(PYTHON_SUBDIR)
  
--DIST_SUBDIRS = include . doc example python xstc
-+DIST_SUBDIRS = include . python xstc
+-DIST_SUBDIRS = include . doc example fuzz python xstc
++DIST_SUBDIRS = include . fuzz python xstc
  
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include
  
-@@ -1274,22 +1274,10 @@ DOC_MODULE=libxml2-$(VERSION)
+@@ -1278,22 +1278,10 @@ DOC_MODULE=libxml2-$(VERSION)
  EXAMPLES_DIR=$(BASE_DIR)/$(DOC_MODULE)/examples
  
  install-data-local: 
@@ -49,18 +51,15 @@ index 9c630be..9557fc1 100644
  tst: tst.c
  	$(CC) $(CFLAGS) -Iinclude -o tst tst.c .libs/libxml2.a -lpthread -lm -lz -llzma
 diff --git a/configure.ac b/configure.ac
-index 370e2de..5f3fb1f 100644
+index 5b161a5450e8b3a2918f0f693c5e3b8e3d660e59..93bed94ca3297241f9290da84050849ddfa07321 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1695,7 +1695,7 @@ rm -f COPYING.LIB COPYING
+@@ -1720,7 +1720,7 @@ rm -f COPYING.LIB COPYING
  ln -s $srcdir/Copyright COPYING
  
  # keep on one line for cygwin c.f. #130896
--AC_CONFIG_FILES([libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile doc/Makefile doc/examples/Makefile doc/devhelp/Makefile example/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
-+AC_CONFIG_FILES([libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
+-AC_CONFIG_FILES([libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile doc/Makefile doc/examples/Makefile doc/devhelp/Makefile example/Makefile fuzz/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
++AC_CONFIG_FILES([libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile example/Makefile fuzz/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
  AC_CONFIG_FILES([python/setup.py], [chmod +x python/setup.py])
  AC_CONFIG_FILES([xml2-config], [chmod +x xml2-config])
  AC_OUTPUT
--- 
-1.8.3-rc3
-
