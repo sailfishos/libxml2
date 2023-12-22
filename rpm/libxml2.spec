@@ -1,6 +1,6 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.10.4
+Version: 2.12.3
 Release: 1
 License: MIT
 Source0: %{name}-%{version}.tar.gz
