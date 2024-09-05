@@ -1,6 +1,6 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.12.3
+Version: 2.13.3
 Release: 1
 License: MIT
 Source0: %{name}-%{version}.tar.gz
@@ -47,7 +47,7 @@ URI library.
 %autosetup -p1 -n %{name}-%{version}/libxml2
 
 %build
-%autogen --with-python=no --with-zlib --with-icu=no
+%autogen --with-python=no --with-zlib --with-icu=no --with-http
 %make_build
 
 %install
@@ -63,14 +63,12 @@ touch -m --reference=$RPM_BUILD_ROOT/%{_includedir}/libxml2/libxml/parser.h $RPM
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-, root, root)
 %license Copyright
 %{_libdir}/lib*.so.*
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
 
 %files devel
-%defattr(-, root, root)
 %{_libdir}/lib*.so
 %{_includedir}/*
 %{_bindir}/xml2-config
