@@ -32,7 +32,7 @@ index 4cb9a5cc..e83a738f 100644
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include -DSYSCONFDIR='"$(sysconfdir)"'
  
 diff --git a/configure.ac b/configure.ac
-index 9149e7b3..abacbe90 100644
+index 36e74e4e..0fdec098 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -1140,7 +1140,7 @@ RELDATE=`date +'%a %b %e %Y'`
