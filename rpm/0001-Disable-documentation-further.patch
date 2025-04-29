@@ -10,7 +10,7 @@ Suppress documentation installation, as it causes problems in our build.
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/Makefile.am b/Makefile.am
-index 4cb9a5cc..e83a738f 100644
+index 4cb9a5cc90b7acd492bfb961468b590dce27ac06..e83a738f19d0a575f959e0aa84a84ebc6690780c 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -2,7 +2,7 @@
@@ -32,10 +32,10 @@ index 4cb9a5cc..e83a738f 100644
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include -DSYSCONFDIR='"$(sysconfdir)"'
  
 diff --git a/configure.ac b/configure.ac
-index 36e74e4e..0fdec098 100644
+index 6922831d226a4e7c97790a451b7d00d142a0b663..243d76b2da837de98f60a5a75bda2ab236d44967 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1140,7 +1140,7 @@ RELDATE=`date +'%a %b %e %Y'`
+@@ -1141,7 +1141,7 @@ RELDATE=`date +'%a %b %e %Y'`
  AC_SUBST(RELDATE)
  
  # keep on one line for cygwin c.f. #130896

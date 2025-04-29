@@ -1,11 +1,10 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.13.4
+Version: 2.13.8
 Release: 1
 License: MIT
 Source0: %{name}-%{version}.tar.gz
 Patch1: 0001-Disable-documentation-further.patch
-Patch2: 0002-dict-Add-fallback-if-getentropy-is-not-supported.patch
 
 BuildRequires: autoconf
 BuildRequires: libtool
