@@ -32,11 +32,11 @@ index 4cb9a5cc90b7acd492bfb961468b590dce27ac06..e83a738f19d0a575f959e0aa84a84ebc
  AM_CPPFLAGS = -I$(top_builddir)/include -I$(srcdir)/include -DSYSCONFDIR='"$(sysconfdir)"'
  
 diff --git a/configure.ac b/configure.ac
-index 6922831d226a4e7c97790a451b7d00d142a0b663..243d76b2da837de98f60a5a75bda2ab236d44967 100644
+index ef27055016a17ce3fec45ebaf02eef397be95519..b880451521aafd0b347e69411ac14067a46bc6a2 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1141,7 +1141,7 @@ RELDATE=`date +'%a %b %e %Y'`
- AC_SUBST(RELDATE)
+@@ -1152,7 +1152,7 @@ AM_SUBST_NOTMAKE(INSTALL_INCLUDEDIR)
+ AM_SUBST_NOTMAKE(INSTALL_LIBDIR)
  
  # keep on one line for cygwin c.f. #130896
 -AC_CONFIG_FILES([Makefile include/Makefile include/libxml/Makefile include/private/Makefile doc/Makefile doc/devhelp/Makefile example/Makefile fuzz/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
