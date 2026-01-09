@@ -1,10 +1,9 @@
 Summary: Library providing XML and HTML support
 Name: libxml2
-Version: 2.13.9
+Version: 2.15.1
 Release: 1
 License: MIT
 Source0: %{name}-%{version}.tar.gz
-Patch1: 0001-Disable-documentation-further.patch
 
 BuildRequires: autoconf
 BuildRequires: libtool
@@ -72,7 +71,5 @@ touch -m --reference=$RPM_BUILD_ROOT/%{_includedir}/libxml2/libxml/parser.h $RPM
 %{_libdir}/lib*.so
 %{_includedir}/*
 %{_bindir}/xml2-config
-%{_datadir}/aclocal/libxml.m4
 %{_libdir}/pkgconfig/libxml-2.0.pc
 %{_libdir}/cmake/%{name}/%{name}-config.cmake
-%exclude %{_libdir}/*.la
